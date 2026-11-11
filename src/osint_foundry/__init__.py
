@@ -1,0 +1,43 @@
+"""osint-foundry — local OSINT investigation runner.
+
+A local-first OSINT investigation program that replays the osintpilot-style
+agent pipeline (digital footprint, breach intelligence, public records,
+identity resolution, web archive) while reusing the passive-recon sources
+from the osint-map toolkit. Emits sourced, confidence-scored intelligence
+reports plus GeoJSON for local 3D globe visualisation with
+[bilawalsidhu/gods-eye-view](https://github.com/bilawalsidhu/gods-eye-view).
+
+Public, account-free endpoints are the recon core. Every source failure is
+isolated: a failed source keeps its last good payload and is retried later
+rather than aborting the whole run.
+
+Install::
+
+    pip install -e .
+
+Run::
+
+    osint investigate example.com
+    osint run --target example.com --stages recon,breach,records
+    osint geo --report ./report.json --out footprint.geojson
+"""
+
+from .model import Finding, Report, default_report, now_iso
+from .sources import SOURCE_ROUTES, clean_text, is_public_host
+from .transport import fetch, get_session
+
+__all__ = [
+    "Finding",
+    "Report",
+    "default_report",
+    "now_iso",
+    "SOURCE_ROUTES",
+    "clean_text",
+    "is_public_host",
+    "fetch",
+    "get_session",
+]
+
+__version__ = "0.2.0"
+__author__ = "osint-foundry contributors"
+__license__ = "MIT"

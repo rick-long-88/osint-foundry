@@ -1,0 +1,150 @@
+"""CLI entry point for osint-foundry.
+
+Subcommands::
+
+    osint investigate <target>          One-shot investigation (all stages)
+    osint run <target>                  Alias of investigate
+    osint stages                        List available collector stages
+    osint geo <report.json> --out f.geojson   Convert a report to GeoJSON
+    osint report <report.json>          Pretty-print a report
+
+Examples::
+
+    osint investigate example.com
+    osint investigate admin@example.com --stages breach,recon
+    osint geo report.json --out footprint.geojson
+"""
+
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+
+import click
+from rich.console import Console
+from rich.progress import Progress, SpinnerColumn, TextColumn
+from rich.table import Table
+
+from osint_foundry import __version__, report as report_mod
+from osint_foundry.collectors import build_collector_registry, get_stage_order
+from osint_foundry.model import Report
+from osint_foundry.runner import run_pipeline
+
+console = Console()
+
+
+@click.group()
+@click.version_option(__version__)
+def main() -> None:
+    """osint-foundry: local OSINT investigation runner."""
+
+
+@main.command("stages")
+def list_stages() -> None:
+    """List available collector stages."""
+    order = get_stage_order()
+    registry = build_collector_registry()
+    table = Table(title="Collector stages")
+    table.add_column("Stage", style="cyan")
+    table.add_column("Kind", style="magenta")
+    table.add_column("Sources", style="green")
+    for stage in order:
+        kind = registry[stage].kind
+        srcs = ", ".join(registry[stage].sources)
+        table.add_row(stage, kind, srcs)
+    console.print(table)
+
+
+@main.command("investigate")
+@click.argument("target")
+@click.option(
+    "--stages",
+    default=",".join(get_stage_order()),
+    show_default=True,
+    help="Comma-separated list of stages to run (default: all).",
+)
+@click.option("--confidence-min", type=float, default=0.0, show_default=True)
+@click.option("--no-shuffle", is_flag=True, help="Run stages in fixed order (default: shuffle).")
+@click.option("--job-count", type=int, default=0, show_default=True, help="Parallelism; 0 = sequential.")
+def cmd_investigate(target: str, stages: str, confidence_min: float, no_shuffle: bool, job_count: int) -> None:
+    """Run an OSINT investigation against TARGET."""
+    stage_list = [s.strip() for s in stages.split(",") if s.strip()]
+    if not stage_list:
+        stage_list = get_stage_order()
+
+    console.print(f"[bold]🔎 Investigating[/bold] [yellow]{target}[/yellow]")
+    console.print(f"[dim]stages=[{','.join(stage_list)}] shuffle={'off' if no_shuffle else 'on'}[/dim]")
+
+    registry = build_collector_registry()
+    selected = [registry[s] for s in stage_list if s in registry]
+    if not selected:
+        console.print(f"[red]Unknown stages: {stage_list}[/red]", highlight=False)
+        sys.exit(1)
+
+    if no_shuffle:
+        selected.reverse()  # run in listed order
+
+    with Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description}"),
+        console=console,
+    ) as progress:
+        task = progress.add_task(f"running stages", total=None)
+        report = Report(target=target, started_at=now())
+        for collector in selected:
+            try:
+                collector.collect(target, report)
+                console.print(f"  [green]✓[/green] {collector.kind}: {len(report.findings)} findings")
+            except Exception as exc:  # pragma: no cover - isolation
+                console.print(f"  [red]✗[/red] {collector.kind} failed: {exc}")
+        progress.remove_task(task)
+
+    report.finished_at = now()
+    report.summary = {
+        "target_type": report.summary.get("target_type", "unknown"),
+        "stage_count": len(selected),
+        "finding_count": len(report.findings),
+        "high_confidence": len([f for f in report.findings if f.confidence >= 0.8]),
+    }
+
+    # Confidence filter
+    if confidence_min > 0:
+        report.findings = [f for f in report.findings if f.confidence >= confidence_min]
+
+    console.print(f"\n[dim]output: {len(report.findings)} findings, [{report.status}][/dim]")
+    console.print_json(json.dumps(report.to_dict(), indent=2))
+
+
+@main.command("report")
+@click.argument("path", type=click.Path(exists=True, readable=True))
+@click.option("--out", "-o", type=click.Path(writable=True), help="Write pretty-printed JSON to file.")
+def cmd_report(path: str, out: str | None) -> None:
+    """Pretty-print a JSON report file."""
+    data = json.loads(Path(path).read_text())
+    text = json.dumps(data, indent=2)
+    console.print(text)
+    if out:
+        Path(out).write_text(text)
+        console.print(f"[green]written to {out}[/green]")
+
+
+@main.command("geo")
+@click.argument("report", type=click.Path(exists=True, readable=True))
+@click.option("--out", "-o", required=True, help="Output GeoJSON file.")
+@click.option("--layer", default="osint-findings", help="GeoJSON layer name.")
+def cmd_geo(report: str, out: str, layer: str) -> None:
+    """Convert a report to GeoJSON for the local gods-eye globe."""
+    data = json.loads(Path(report).read_text())
+    feats = report_mod.report_to_geojson(data, layer=layer)
+    Path(out).write_text(json.dumps(feats, indent=2))
+    console.print(f"[green]wrote {len(feats['features'])} features to {out}[/green]")
+
+
+def now() -> str:
+    from osint_foundry import now_iso
+    return now_iso()
+
+
+if __name__ == "__main__":
+    main()

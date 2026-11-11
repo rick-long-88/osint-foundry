@@ -1,0 +1,30 @@
+"""Digital footprint / passive recon stage.
+
+Collects DNS records, RDAP registration data, certificate transparency
+subdomains, IP geolocation and GitHub account hints from the osint-map
+passive-recon source list. Reuses the existing ``run_recon`` from
+``osint_foundry.recon``.
+"""
+
+from __future__ import annotations
+
+from ..model import Report
+from ..recon import run_recon
+from .base import Collector
+
+
+class DigitalFootprintCollector(Collector):
+    """Digital Footprint Mapping: DNS, RDAP, CT, IP geolocation, GitHub hints."""
+
+    kind = "recon"
+    sources = [
+        "dns.google (dnspython)",
+        "rdap.org",
+        "crt.sh (certificate transparency)",
+        "ipwho.is / ipinfo.io",
+        "api.github.com",
+    ]
+
+    def collect(self, target: str, report: Report) -> None:
+        # Run the existing passive-recon implementation; it appends findings.
+        run_recon(target, report)

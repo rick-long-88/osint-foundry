@@ -1,0 +1,1536 @@
+{
+  "target": "example.com",
+  "status": "partial",
+  "started_at": "",
+  "finished_at": "2026-11-10T00:26:55Z",
+  "collectors": [
+    "recon",
+    "web-check",
+    "openosint-actors"
+  ],
+  "finding_count": 102,
+  "summary": {},
+  "findings": [
+    {
+      "category": "recon",
+      "subtype": "dns:A record",
+      "target": "example.com",
+      "summary": "A records: 104.20.23.154, 172.66.147.243",
+      "source": "dns.google / dnspython",
+      "confidence": 1.0,
+      "value": {
+        "type": "A",
+        "values": [
+          "104.20.23.154",
+          "172.66.147.243"
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "recon",
+      "subtype": "dns:AAAA record",
+      "target": "example.com",
+      "summary": "AAAA records: 2606:4700:10::6814:179a, 2606:4700:10::ac42:93f3",
+      "source": "dns.google / dnspython",
+      "confidence": 1.0,
+      "value": {
+        "type": "AAAA",
+        "values": [
+          "2606:4700:10::6814:179a",
+          "2606:4700:10::ac42:93f3"
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "recon",
+      "subtype": "dns:TXT record",
+      "target": "example.com",
+      "summary": "TXT records: \"v=spf1 -all\", \"_k2n1y4vw3qtb4skdx9e7dxt97qrmmq9\"",
+      "source": "dns.google / dnspython",
+      "confidence": 1.0,
+      "value": {
+        "type": "TXT",
+        "values": [
+          "\"v=spf1 -all\"",
+          "\"_k2n1y4vw3qtb4skdx9e7dxt97qrmmq9\""
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "recon",
+      "subtype": "dns:MX record",
+      "target": "example.com",
+      "summary": "MX records: 0 .",
+      "source": "dns.google / dnspython",
+      "confidence": 1.0,
+      "value": {
+        "type": "MX",
+        "values": [
+          "0 ."
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "recon",
+      "subtype": "dns:NS record",
+      "target": "example.com",
+      "summary": "NS records: hera.ns.cloudflare.com, elliott.ns.cloudflare.com",
+      "source": "dns.google / dnspython",
+      "confidence": 1.0,
+      "value": {
+        "type": "NS",
+        "values": [
+          "hera.ns.cloudflare.com",
+          "elliott.ns.cloudflare.com"
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "recon",
+      "subtype": "rdap",
+      "target": "example.com",
+      "summary": "RDAP registration lookup (truncated): {\"objectClassName\":\"domain\",\"handle\":\"2336799_DOMAIN_COM-VRSN\",\"ldhName\":\"EXAMPLE.COM\",\"links\":[{\"value\":\"https:\\/\\/rdap.verisign.com\\/com\\/v1\\/domain\\/example.",
+      "source": "rdap.org",
+      "confidence": 1.0,
+      "value": {
+        "rdap": "{\"objectClassName\":\"domain\",\"handle\":\"2336799_DOMAIN_COM-VRSN\",\"ldhName\":\"EXAMPLE.COM\",\"links\":[{\"value\":\"https:\\/\\/rdap.verisign.com\\/com\\/v1\\/domain\\/example.com\",\"rel\":\"self\",\"href\":\"https:\\/\\/rdap.verisign.com\\/com\\/v1\\/domain\\/example.com\",\"type\":\"application\\/rdap+json\"}],\"status\":[\"client delete prohibited\",\"client transfer prohibited\",\"client update prohibited\"],\"entities\":[{\"objectClassName\":\"entity\",\"handle\":\"376\",\"roles\":[\"registrar\"],\"publicIds\":[{\"type\":\"IANA Registrar ID\",\"identifier\":\"376\"}],\"vcardArray\":[\"vcard\",[[\"version\",{},\"text\",\"4.0\"],[\"fn\",{},\"text\",\"RESERVED-Internet Assigned Numbers Authority\"]]],\"entities\":[{\"objectClassName\":\"entity\",\"roles\":[\"abuse\"],\"vcardArray\":[\"vcard\",[[\"version\",{},\"text\",\"4.0\"],[\"fn\",{},\"text\",\"\"],[\"tel\",{\"type\":\"voice\"},\"uri\",\"\"],[\"email\",{},\"text\",\"\"]]]}]}],\"events\":[{\"eventAction\":\"registration\",\"eventDate\":\"1995-08-14T04:00:00Z\"},{\"eventAction\":\"expiration\",\"eventDate\":\"2027-08-13T04:00:00Z\"},{\"eventAction\":\"last changed\",\"eventDate\":\"2026-08-14T08:01:43Z\"},{\"eventAction\":\"last update of RDAP database\",\"eventDate\":\"2026-11-10T00:27:15Z\"}],\"secureDNS\":{\"delegationSigned\":true,\"dsData\":[{\"keyTag\":2371,\"algorithm\":13,\"digestType\":"
+      },
+      "raw": "{\"objectClassName\":\"domain\",\"handle\":\"2336799_DOMAIN_COM-VRSN\",\"ldhName\":\"EXAMPLE.COM\",\"links\":[{\"value\":\"https:\\/\\/rdap.verisign.com\\/com\\/v1\\/domain\\/example.com\",\"rel\":\"self\",\"href\":\"https:\\/\\/rdap.verisign.com\\/com\\/v1\\/domain\\/example.com\",\"type\":\"application\\/rdap+json\"}],\"status\":[\"client delete prohibited\",\"client transfer prohibited\",\"client update prohibited\"],\"entities\":[{\"objectClassName\":\"entity\",\"handle\":\"376\",\"roles\":[\"registrar\"],\"publicIds\":[{\"type\":\"IANA Registrar ID\",\"identifier\":\"376\"}],\"vcardArray\":[\"vcard\",[[\"version\",{},\"text\",\"4.0\"],[\"fn\",{},\"text\",\"RESERVED-Internet Assigned Numbers Authority\"]]],\"entities\":[{\"objectClassName\":\"entity\",\"roles\":[\"abuse\"],\"vcardArray\":[\"vcard\",[[\"version\",{},\"text\",\"4.0\"],[\"fn\",{},\"text\",\"\"],[\"tel\",{\"type\":\"voice\"},\"uri\",\"\"],[\"email\",{},\"text\",\"\"]]]}]}],\"events\":[{\"eventAction\":\"registration\",\"eventDate\":\"1995-08-14T04:00:00Z\"},{\"eventAction\":\"expiration\",\"eventDate\":\"2027-08-13T04:00:00Z\"},{\"eventAction\":\"last changed\",\"eventDate\":\"2026-08-14T08:01:43Z\"},{\"eventAction\":\"last update of RDAP database\",\"eventDate\":\"2026-11-10T00:27:15Z\"}],\"secureDNS\":{\"delegationSigned\":true,\"dsData\":[{\"keyTag\":2371,\"algorithm\":13,\"digestType\":"
+    },
+    {
+      "category": "recon",
+      "subtype": "ipwhois",
+      "target": "example.com",
+      "summary": "IP geolocation/ASN: {\"ip\":\"172.66.147.243\",\"success\":true,\"type\":\"IPv4\",\"continent\":\"North America\",\"continent_code\":\"NA\",\"country\":\"United States\",\"country_cod",
+      "source": "ipwho.is",
+      "confidence": 0.8,
+      "value": {
+        "ip": "172.66.147.243"
+      },
+      "raw": "{\"ip\":\"172.66.147.243\",\"success\":true,\"type\":\"IPv4\",\"continent\":\"North America\",\"continent_code\":\"NA\",\"country\":\"United States\",\"country_code\":\"US\",\"region\":\"California\",\"region_code\":\"CA\",\"city\":\"San Francisco\",\"latitude\":37.774926,\"longitude\":-122.4194208,\"is_eu\":false,\"postal\":\"94119\",\"calling_code\":\"1\",\"capital\":\"Washington D.C.\",\"borders\":\"CA,MX\",\"flag\":{\"img\":\"https://cdn.ipwhois.io/flags/us.svg\",\"emoji\":\"🇺🇸\",\"emoji_unicode\":\"U+1F1FA U+1F1F8\"},\"connection\":{\"asn\":13335,\"org\":\"Cloudflare, Inc.\",\"isp\":\"Cloudflare, Inc.\",\"domain\":\"cloudflare.com\"},\"timezone\":{\"id\":\"America/Los_Angeles\",\"abbr\":\"PST\",\"is_dst\":false,\"offset\":-28800,\"utc\":\"-08:00\"},\"readme\":\"https://ipwhois.io/docs\"}"
+    },
+    {
+      "category": "recon",
+      "subtype": "ipinfo",
+      "target": "example.com",
+      "summary": "IP geolocation: San Francisco, US | ASN AS13335 Cloudflare, Inc.",
+      "source": "ipinfo.io",
+      "confidence": 0.8,
+      "value": {
+        "ip": "104.20.23.154",
+        "city": "San Francisco",
+        "region": "California",
+        "country": "US",
+        "loc": "37.7621,-122.3971",
+        "org": "AS13335 Cloudflare, Inc.",
+        "postal": "94107",
+        "timezone": "America/Los_Angeles",
+        "readme": "https://ipinfo.io/missingauth",
+        "anycast": true
+      },
+      "raw": ""
+    },
+    {
+      "category": "recon",
+      "subtype": "security_headers",
+      "target": "example.com",
+      "summary": "No security headers detected.",
+      "source": "https://example.com/",
+      "confidence": 0.7,
+      "value": {
+        "headers": {}
+      },
+      "raw": ""
+    },
+    {
+      "category": "recon",
+      "subtype": "html_fingerprint",
+      "target": "example.com",
+      "summary": "title: Example Domain",
+      "source": "https://example.com",
+      "confidence": 0.6,
+      "value": {
+        "title": "Example Domain",
+        "meta_description": "",
+        "canonical": "",
+        "og": "",
+        "tech": []
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns:A",
+      "target": "example.com",
+      "summary": "DNS record lookup: ['104.20.23.154', '172.66.147.243']",
+      "source": "http://127.0.0.1:3005/api/dns",
+      "confidence": 1.0,
+      "value": {
+        "check": "A",
+        "result": [
+          "104.20.23.154",
+          "172.66.147.243"
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns:AAAA",
+      "target": "example.com",
+      "summary": "DNS record lookup: ['2606:4700:10::ac42:93f3', '2606:4700:10::6814:179a']",
+      "source": "http://127.0.0.1:3005/api/dns",
+      "confidence": 1.0,
+      "value": {
+        "check": "AAAA",
+        "result": [
+          "2606:4700:10::ac42:93f3",
+          "2606:4700:10::6814:179a"
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns:MX",
+      "target": "example.com",
+      "summary": "DNS record lookup: [{'exchange': '', 'priority': 0}]",
+      "source": "http://127.0.0.1:3005/api/dns",
+      "confidence": 1.0,
+      "value": {
+        "check": "MX",
+        "result": [
+          {
+            "exchange": "",
+            "priority": 0
+          }
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns:TXT",
+      "target": "example.com",
+      "summary": "DNS record lookup: [['v=spf1 -all'], ['_k2n1y4vw3qtb4skdx9e7dxt97qrmmq9']]",
+      "source": "http://127.0.0.1:3005/api/dns",
+      "confidence": 1.0,
+      "value": {
+        "check": "TXT",
+        "result": [
+          [
+            "v=spf1 -all"
+          ],
+          [
+            "_k2n1y4vw3qtb4skdx9e7dxt97qrmmq9"
+          ]
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns:NS",
+      "target": "example.com",
+      "summary": "DNS record lookup: ['elliott.ns.cloudflare.com', 'hera.ns.cloudflare.com']",
+      "source": "http://127.0.0.1:3005/api/dns",
+      "confidence": 1.0,
+      "value": {
+        "check": "NS",
+        "result": [
+          "elliott.ns.cloudflare.com",
+          "hera.ns.cloudflare.com"
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns:CNAME",
+      "target": "example.com",
+      "summary": "DNS record lookup: []",
+      "source": "http://127.0.0.1:3005/api/dns",
+      "confidence": 1.0,
+      "value": {
+        "check": "CNAME",
+        "result": []
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns:SOA",
+      "target": "example.com",
+      "summary": "DNS record lookup: {'nsname': 'elliott.ns.cloudflare.com', 'hostmaster': 'dns.cloudflare.com', 'serial': 2418004112, 'refresh': 10000, 'retry': 2400, 'expire': 604800, 'minttl': 1",
+      "source": "http://127.0.0.1:3005/api/dns",
+      "confidence": 1.0,
+      "value": {
+        "check": "SOA",
+        "result": {
+          "nsname": "elliott.ns.cloudflare.com",
+          "hostmaster": "dns.cloudflare.com",
+          "serial": 2418004112,
+          "refresh": 10000,
+          "retry": 2400,
+          "expire": 604800,
+          "minttl": 1800
+        }
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns:SRV",
+      "target": "example.com",
+      "summary": "DNS record lookup: []",
+      "source": "http://127.0.0.1:3005/api/dns",
+      "confidence": 1.0,
+      "value": {
+        "check": "SRV",
+        "result": []
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns:PTR",
+      "target": "example.com",
+      "summary": "DNS record lookup: []",
+      "source": "http://127.0.0.1:3005/api/dns",
+      "confidence": 1.0,
+      "value": {
+        "check": "PTR",
+        "result": []
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dnssec:DNSKEY",
+      "target": "example.com",
+      "summary": "DNSSEC validation status: {'isFound': True, 'answer': [{'name': 'example.com.', 'type': 48, 'TTL': 3600, 'data': '256 3 13 oJMRESz5E4gYzS/q6XDrvU1qMPYIjCWzJaOau8XNEZeqCYKD5ar0IRd8KqXXFJk",
+      "source": "http://127.0.0.1:3005/api/dnssec",
+      "confidence": 0.9,
+      "value": {
+        "check": "DNSKEY",
+        "result": {
+          "isFound": true,
+          "answer": [
+            {
+              "name": "example.com.",
+              "type": 48,
+              "TTL": 3600,
+              "data": "256 3 13 oJMRESz5E4gYzS/q6XDrvU1qMPYIjCWzJaOau8XNEZeqCYKD5ar0IRd8KqXXFJkqmVfRvMGPmM1x8fGAa2XhSA=="
+            },
+            {
+              "name": "example.com.",
+              "type": 48,
+              "TTL": 3600,
+              "data": "256 3 13 MjyZielP0GqniI1+j+wAG/3t0ImDDIlj1CxR0oobkZQHSKH2Fqx6tm2NcYu57POJ83SzCWLkqIjZHS1mh5wbaw=="
+            },
+            {
+              "name": "example.com.",
+              "type": 48,
+              "TTL": 3600,
+              "data": "256 3 13 kxipjoIbNZDsWqEKaYaGq6fM/XThrRp1ue6AV9R/n3eWxpGCeCWJb47PEEEj/Q6VAYFW/7UFo5mXoZfxKYZa3A=="
+            },
+            {
+              "name": "example.com.",
+              "type": 48,
+              "TTL": 3600,
+              "data": "257 3 13 mdsswUyr3DPW132mOi8V9xESWE8jTo0dxCjjnopKl+GqJxpVXckHAeF+KkxLbxILfDLUT0rAK9iUzy1L53eKGQ=="
+            }
+          ],
+          "response": [
+            {
+              "name": "example.com.",
+              "type": 48,
+              "TTL": 3600,
+              "data": "256 3 13 oJMRESz5E4gYzS/q6XDrvU1qMPYIjCWzJaOau8XNEZeqCYKD5ar0IRd8KqXXFJkqmVfRvMGPmM1x8fGAa2XhSA=="
+            },
+            {
+              "name": "example.com.",
+              "type": 48,
+              "TTL": 3600,
+              "data": "256 3 13 MjyZielP0GqniI1+j+wAG/3t0ImDDIlj1CxR0oobkZQHSKH2Fqx6tm2NcYu57POJ83SzCWLkqIjZHS1mh5wbaw=="
+            },
+            {
+              "name": "example.com.",
+              "type": 48,
+              "TTL": 3600,
+              "data": "256 3 13 kxipjoIbNZDsWqEKaYaGq6fM/XThrRp1ue6AV9R/n3eWxpGCeCWJb47PEEEj/Q6VAYFW/7UFo5mXoZfxKYZa3A=="
+            },
+            {
+              "name": "example.com.",
+              "type": 48,
+              "TTL": 3600,
+              "data": "257 3 13 mdsswUyr3DPW132mOi8V9xESWE8jTo0dxCjjnopKl+GqJxpVXckHAeF+KkxLbxILfDLUT0rAK9iUzy1L53eKGQ=="
+            }
+          ]
+        }
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dnssec:DS",
+      "target": "example.com",
+      "summary": "DNSSEC validation status: {'isFound': True, 'answer': [{'name': 'example.com.', 'type': 43, 'TTL': 21600, 'data': '2371 13 2 C988EC423E3880EB8DD8A46FE06CA230EE23F35B578D64E78B29C3E1C83D2",
+      "source": "http://127.0.0.1:3005/api/dnssec",
+      "confidence": 0.9,
+      "value": {
+        "check": "DS",
+        "result": {
+          "isFound": true,
+          "answer": [
+            {
+              "name": "example.com.",
+              "type": 43,
+              "TTL": 21600,
+              "data": "2371 13 2 C988EC423E3880EB8DD8A46FE06CA230EE23F35B578D64E78B29C3E1C83D245A"
+            }
+          ],
+          "response": [
+            {
+              "name": "example.com.",
+              "type": 43,
+              "TTL": 21600,
+              "data": "2371 13 2 C988EC423E3880EB8DD8A46FE06CA230EE23F35B578D64E78B29C3E1C83D245A"
+            }
+          ]
+        }
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dnssec:RRSIG",
+      "target": "example.com",
+      "summary": "DNSSEC validation status: {'isFound': True, 'answer': None, 'response': {'Status': 0, 'TC': False, 'RD': True, 'RA': True, 'AD': True, 'CD': False, 'Question': [{'name': 'example.com.', ",
+      "source": "http://127.0.0.1:3005/api/dnssec",
+      "confidence": 0.9,
+      "value": {
+        "check": "RRSIG",
+        "result": {
+          "isFound": true,
+          "answer": null,
+          "response": {
+            "Status": 0,
+            "TC": false,
+            "RD": true,
+            "RA": true,
+            "AD": true,
+            "CD": false,
+            "Question": [
+              {
+                "name": "example.com.",
+                "type": 1
+              }
+            ],
+            "Answer": [
+              {
+                "name": "example.com.",
+                "type": 1,
+                "TTL": 300,
+                "data": "104.20.23.154"
+              },
+              {
+                "name": "example.com.",
+                "type": 1,
+                "TTL": 300,
+                "data": "172.66.147.243"
+              }
+            ],
+            "Comment": "Response from 108.162.192.162."
+          }
+        }
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns_server",
+      "target": "example.com",
+      "summary": "DNS server identification: domain=example.com",
+      "source": "http://127.0.0.1:3005/api/dns-server",
+      "confidence": 0.9,
+      "value": {
+        "check": "domain",
+        "value": "example.com"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns_server",
+      "target": "example.com",
+      "summary": "DNS server identification: zone=example.com",
+      "source": "http://127.0.0.1:3005/api/dns-server",
+      "confidence": 0.9,
+      "value": {
+        "check": "zone",
+        "value": "example.com"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "dns_server:dns",
+      "target": "example.com",
+      "summary": "DNS server identification: [{'address': '172.64.35.228', 'hostname': 'elliott.ns.cloudflare.com'}, {'address': '172.64.32.162', 'hostname': 'hera.ns.cloudflare.com'}]",
+      "source": "http://127.0.0.1:3005/api/dns-server",
+      "confidence": 0.9,
+      "value": {
+        "check": "dns",
+        "result": [
+          {
+            "address": "172.64.35.228",
+            "hostname": "elliott.ns.cloudflare.com"
+          },
+          {
+            "address": "172.64.32.162",
+            "hostname": "hera.ns.cloudflare.com"
+          }
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois",
+      "target": "example.com",
+      "summary": "Domain registration data: domain=EXAMPLE.COM",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "domain",
+        "value": "EXAMPLE.COM"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois",
+      "target": "example.com",
+      "summary": "Domain registration data: registrar=RESERVED-Internet Assigned Numbers Authority",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "registrar",
+        "value": "RESERVED-Internet Assigned Numbers Authority"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois",
+      "target": "example.com",
+      "summary": "Domain registration data: registrarUrl=http://res-dom.iana.org",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "registrarUrl",
+        "value": "http://res-dom.iana.org"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois",
+      "target": "example.com",
+      "summary": "Domain registration data: registrarIanaId=376",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "registrarIanaId",
+        "value": "376"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois",
+      "target": "example.com",
+      "summary": "Domain registration data: registrarWhoisServer=whois.iana.org",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "registrarWhoisServer",
+        "value": "whois.iana.org"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois",
+      "target": "example.com",
+      "summary": "Domain registration data: registryDomainId=2336799_DOMAIN_COM-VRSN",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "registryDomainId",
+        "value": "2336799_DOMAIN_COM-VRSN"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois",
+      "target": "example.com",
+      "summary": "Domain registration data: created=1995-08-14T04:00:00.000Z",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "created",
+        "value": "1995-08-14T04:00:00.000Z"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois",
+      "target": "example.com",
+      "summary": "Domain registration data: updated=2026-08-14T08:01:43.000Z",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "updated",
+        "value": "2026-08-14T08:01:43.000Z"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois",
+      "target": "example.com",
+      "summary": "Domain registration data: expires=2027-08-13T04:00:00.000Z",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "expires",
+        "value": "2027-08-13T04:00:00.000Z"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois:nameservers",
+      "target": "example.com",
+      "summary": "Domain registration data: ['elliott.ns.cloudflare.com', 'hera.ns.cloudflare.com']",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "nameservers",
+        "result": [
+          "elliott.ns.cloudflare.com",
+          "hera.ns.cloudflare.com"
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois:status",
+      "target": "example.com",
+      "summary": "Domain registration data: ['clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited', 'clientTransferProhibited https://icann.org/epp#clientTransferProhibited', 'clientUpdate",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "status",
+        "result": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "whois",
+      "target": "example.com",
+      "summary": "Domain registration data: dnssec=signedDelegation",
+      "source": "http://127.0.0.1:3005/api/whois",
+      "confidence": 0.9,
+      "value": {
+        "check": "dnssec",
+        "value": "signedDelegation"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "subdomains",
+      "target": "example.com",
+      "summary": "Passive subdomain enumeration: domain=example.com",
+      "source": "http://127.0.0.1:3005/api/subdomains",
+      "confidence": 0.7,
+      "value": {
+        "check": "domain",
+        "value": "example.com"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "subdomains",
+      "target": "example.com",
+      "summary": "Passive subdomain enumeration: count=2",
+      "source": "http://127.0.0.1:3005/api/subdomains",
+      "confidence": 0.7,
+      "value": {
+        "check": "count",
+        "value": 2
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "subdomains",
+      "target": "example.com",
+      "summary": "Passive subdomain enumeration: truncated=False",
+      "source": "http://127.0.0.1:3005/api/subdomains",
+      "confidence": 0.7,
+      "value": {
+        "check": "truncated",
+        "value": false
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "subdomains:subdomains",
+      "target": "example.com",
+      "summary": "Passive subdomain enumeration: ['emudhra-lab.example.com', 'www.example.com']",
+      "source": "http://127.0.0.1:3005/api/subdomains",
+      "confidence": 0.7,
+      "value": {
+        "check": "subdomains",
+        "result": [
+          "emudhra-lab.example.com",
+          "www.example.com"
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "subdomains",
+      "target": "example.com",
+      "summary": "Passive subdomain enumeration: source=certSpotter",
+      "source": "http://127.0.0.1:3005/api/subdomains",
+      "confidence": 0.7,
+      "value": {
+        "check": "source",
+        "value": "certSpotter"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tech_stack",
+      "target": "example.com",
+      "summary": "Technology fingerprinting: skipped (Could not find Chromium (rev. 1095492). This can occur if either\n 1. you did not perform an installation before running the script (e.g. `npm install`) or\n 2. your cache path is incorrectly configured (which is: /home/bigdaddy/.cache/puppeteer).\nFor (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.)",
+      "source": "http://127.0.0.1:3005/api/tech-stack",
+      "confidence": 0.0,
+      "value": {
+        "skipped": "Could not find Chromium (rev. 1095492). This can occur if either\n 1. you did not perform an installation before running the script (e.g. `npm install`) or\n 2. your cache path is incorrectly configured (which is: /home/bigdaddy/.cache/puppeteer).\nFor (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration."
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tls_connection",
+      "target": "example.com",
+      "summary": "TLS connection details: protocol=TLSv1.3",
+      "source": "http://127.0.0.1:3005/api/tls-connection",
+      "confidence": 0.8,
+      "value": {
+        "check": "protocol",
+        "value": "TLSv1.3"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tls_connection:cipher",
+      "target": "example.com",
+      "summary": "TLS connection details: {'name': 'TLS_AES_256_GCM_SHA384', 'standardName': 'TLS_AES_256_GCM_SHA384', 'version': 'TLSv1.3'}",
+      "source": "http://127.0.0.1:3005/api/tls-connection",
+      "confidence": 0.8,
+      "value": {
+        "check": "cipher",
+        "result": {
+          "name": "TLS_AES_256_GCM_SHA384",
+          "standardName": "TLS_AES_256_GCM_SHA384",
+          "version": "TLSv1.3"
+        }
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tls_connection",
+      "target": "example.com",
+      "summary": "TLS connection details: alpnProtocol=h2",
+      "source": "http://127.0.0.1:3005/api/tls-connection",
+      "confidence": 0.8,
+      "value": {
+        "check": "alpnProtocol",
+        "value": "h2"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tls_connection",
+      "target": "example.com",
+      "summary": "TLS connection details: sessionResumption=True",
+      "source": "http://127.0.0.1:3005/api/tls-connection",
+      "confidence": 0.8,
+      "value": {
+        "check": "sessionResumption",
+        "value": true
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tls_connection",
+      "target": "example.com",
+      "summary": "TLS connection details: forwardSecrecy=True",
+      "source": "http://127.0.0.1:3005/api/tls-connection",
+      "confidence": 0.8,
+      "value": {
+        "check": "forwardSecrecy",
+        "value": true
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tls_connection",
+      "target": "example.com",
+      "summary": "TLS connection details: authorized=True",
+      "source": "http://127.0.0.1:3005/api/tls-connection",
+      "confidence": 0.8,
+      "value": {
+        "check": "authorized",
+        "value": true
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tls_connection",
+      "target": "example.com",
+      "summary": "TLS connection details: authError=None",
+      "source": "http://127.0.0.1:3005/api/tls-connection",
+      "confidence": 0.8,
+      "value": {
+        "check": "authError",
+        "value": null
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tls_connection:ephemeralKey",
+      "target": "example.com",
+      "summary": "TLS connection details: {'type': None, 'name': None, 'size': None}",
+      "source": "http://127.0.0.1:3005/api/tls-connection",
+      "confidence": 0.8,
+      "value": {
+        "check": "ephemeralKey",
+        "result": {
+          "type": null,
+          "name": null,
+          "size": null
+        }
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tls_connection",
+      "target": "example.com",
+      "summary": "TLS connection details: ocspStapled=True",
+      "source": "http://127.0.0.1:3005/api/tls-connection",
+      "confidence": 0.8,
+      "value": {
+        "check": "ocspStapled",
+        "value": true
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tls_connection:versions",
+      "target": "example.com",
+      "summary": "TLS connection details: ['TLSv1', 'TLSv1.1', 'TLSv1.2', 'TLSv1.3']",
+      "source": "http://127.0.0.1:3005/api/tls-connection",
+      "confidence": 0.8,
+      "value": {
+        "check": "versions",
+        "result": [
+          "TLSv1",
+          "TLSv1.1",
+          "TLSv1.2",
+          "TLSv1.3"
+        ]
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "tls_labs",
+      "target": "example.com",
+      "summary": "SSL Labs grade: skipped (SSL Labs: Hostname blacklisted)",
+      "source": "http://127.0.0.1:3005/api/tls-labs",
+      "confidence": 0.0,
+      "value": {
+        "skipped": "SSL Labs: Hostname blacklisted"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "hsts",
+      "target": "example.com",
+      "summary": "HSTS policy: message=Site does not serve any HSTS headers.",
+      "source": "http://127.0.0.1:3005/api/hsts",
+      "confidence": 0.9,
+      "value": {
+        "check": "message",
+        "value": "Site does not serve any HSTS headers."
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "hsts",
+      "target": "example.com",
+      "summary": "HSTS policy: compatible=False",
+      "source": "http://127.0.0.1:3005/api/hsts",
+      "confidence": 0.9,
+      "value": {
+        "check": "compatible",
+        "value": false
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "hsts",
+      "target": "example.com",
+      "summary": "HSTS policy: hstsHeader=None",
+      "source": "http://127.0.0.1:3005/api/hsts",
+      "confidence": 0.9,
+      "value": {
+        "check": "hstsHeader",
+        "value": null
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: age=7756",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "age",
+        "value": "7756"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: allow=GET, HEAD",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "allow",
+        "value": "GET, HEAD"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: alt-svc=h3=\":443\"; ma=86400",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "alt-svc",
+        "value": "h3=\":443\"; ma=86400"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: cf-cache-status=HIT",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "cf-cache-status",
+        "value": "HIT"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: cf-ray=a580ef9c0b2be1d2-ATL",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "cf-ray",
+        "value": "a580ef9c0b2be1d2-ATL"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: connection=keep-alive",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "connection",
+        "value": "keep-alive"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: content-encoding=br",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "content-encoding",
+        "value": "br"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: content-type=text/html; charset=utf-8",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "content-type",
+        "value": "text/html; charset=utf-8"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: date=Tue, 10 Nov 2026 00:28:14 GMT",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "date",
+        "value": "Tue, 10 Nov 2026 00:28:14 GMT"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: last-modified=Thu, 05 Nov 2026 21:17:41 GMT",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "last-modified",
+        "value": "Thu, 05 Nov 2026 21:17:41 GMT"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: server=cloudflare",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "server",
+        "value": "cloudflare"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "http_headers",
+      "target": "example.com",
+      "summary": "HTTP response headers: transfer-encoding=chunked",
+      "source": "http://127.0.0.1:3005/api/headers",
+      "confidence": 0.8,
+      "value": {
+        "check": "transfer-encoding",
+        "value": "chunked"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "cookies:headerCookies",
+      "target": "example.com",
+      "summary": "Cookie security attributes: []",
+      "source": "http://127.0.0.1:3005/api/cookies",
+      "confidence": 0.6,
+      "value": {
+        "check": "headerCookies",
+        "result": []
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "cookies:clientCookies",
+      "target": "example.com",
+      "summary": "Cookie security attributes: []",
+      "source": "http://127.0.0.1:3005/api/cookies",
+      "confidence": 0.6,
+      "value": {
+        "check": "clientCookies",
+        "result": []
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "robots_txt",
+      "target": "example.com",
+      "summary": "robots.txt inspection: skipped (No robots.txt file present on this host)",
+      "source": "http://127.0.0.1:3005/api/robots-txt",
+      "confidence": 0.0,
+      "value": {
+        "skipped": "No robots.txt file present on this host"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "security_txt",
+      "target": "example.com",
+      "summary": "security.txt discovery: isPresent=False",
+      "source": "http://127.0.0.1:3005/api/security-txt",
+      "confidence": 0.7,
+      "value": {
+        "check": "isPresent",
+        "value": false
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "mixed_content",
+      "target": "example.com",
+      "summary": "Mixed content detection: url=https://example.com/",
+      "source": "http://127.0.0.1:3005/api/mixed-content",
+      "confidence": 0.8,
+      "value": {
+        "check": "url",
+        "value": "https://example.com/"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "mixed_content",
+      "target": "example.com",
+      "summary": "Mixed content detection: upgradeInsecureRequests=False",
+      "source": "http://127.0.0.1:3005/api/mixed-content",
+      "confidence": 0.8,
+      "value": {
+        "check": "upgradeInsecureRequests",
+        "value": false
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "mixed_content",
+      "target": "example.com",
+      "summary": "Mixed content detection: integrityPolicy=False",
+      "source": "http://127.0.0.1:3005/api/mixed-content",
+      "confidence": 0.8,
+      "value": {
+        "check": "integrityPolicy",
+        "value": false
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "mixed_content:active",
+      "target": "example.com",
+      "summary": "Mixed content detection: []",
+      "source": "http://127.0.0.1:3005/api/mixed-content",
+      "confidence": 0.8,
+      "value": {
+        "check": "active",
+        "result": []
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "mixed_content:passive",
+      "target": "example.com",
+      "summary": "Mixed content detection: []",
+      "source": "http://127.0.0.1:3005/api/mixed-content",
+      "confidence": 0.8,
+      "value": {
+        "check": "passive",
+        "result": []
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "mixed_content:forms",
+      "target": "example.com",
+      "summary": "Mixed content detection: []",
+      "source": "http://127.0.0.1:3005/api/mixed-content",
+      "confidence": 0.8,
+      "value": {
+        "check": "forms",
+        "result": []
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "mixed_content",
+      "target": "example.com",
+      "summary": "Mixed content detection: thirdPartyScripts=0",
+      "source": "http://127.0.0.1:3005/api/mixed-content",
+      "confidence": 0.8,
+      "value": {
+        "check": "thirdPartyScripts",
+        "value": 0
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "mixed_content:missingIntegrity",
+      "target": "example.com",
+      "summary": "Mixed content detection: {'versioned': [], 'unversioned': []}",
+      "source": "http://127.0.0.1:3005/api/mixed-content",
+      "confidence": 0.8,
+      "value": {
+        "check": "missingIntegrity",
+        "result": {
+          "versioned": [],
+          "unversioned": []
+        }
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "mixed_content:missingCrossorigin",
+      "target": "example.com",
+      "summary": "Mixed content detection: []",
+      "source": "http://127.0.0.1:3005/api/mixed-content",
+      "confidence": 0.8,
+      "value": {
+        "check": "missingCrossorigin",
+        "result": []
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "quality",
+      "target": "example.com",
+      "summary": "Page quality score: skipped (Quality check requires GOOGLE_CLOUD_API_KEY to be set)",
+      "source": "http://127.0.0.1:3005/api/quality",
+      "confidence": 0.0,
+      "value": {
+        "skipped": "Quality check requires GOOGLE_CLOUD_API_KEY to be set"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: ip=104.20.23.154",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "ip",
+        "value": "104.20.23.154"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: city=Toronto",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "city",
+        "value": "Toronto"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: region=Ontario",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "region",
+        "value": "Ontario"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: country_name=Canada",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "country_name",
+        "value": "Canada"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: country_code=CA",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "country_code",
+        "value": "CA"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: region_code=ON",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "region_code",
+        "value": "ON"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: postal=M5A",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "postal",
+        "value": "M5A"
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: latitude=43.6532",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "latitude",
+        "value": 43.6532
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: longitude=-79.3832",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "longitude",
+        "value": -79.3832
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: org=Cloudflare, Inc.",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "org",
+        "value": "Cloudflare, Inc."
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: asn=13335",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "asn",
+        "value": 13335
+      },
+      "raw": ""
+    },
+    {
+      "category": "web-check",
+      "subtype": "location",
+      "target": "example.com",
+      "summary": "Physical server location: timezone=America/Toronto",
+      "source": "http://127.0.0.1:3005/api/location",
+      "confidence": 0.5,
+      "value": {
+        "check": "timezone",
+        "value": "America/Toronto"
+      },
+      "raw": ""
+    },
+    {
+      "category": "openosint-actors",
+      "subtype": "domain-recon",
+      "target": "example.com",
+      "summary": "Domain-recon results: {'id': 'ftGimgRrjfIaT323r', 'name': None, 'accessed_at': '2026-11-09 23:36:24.340719+00:00', 'created_at': '2026-11-09 23:36:24.336042+00:00', 'modified_at': '2026-11-09 23:36:24.340719+00:00', 'item_",
+      "source": "OpenOSINT domain-recon",
+      "confidence": 0.8,
+      "value": {
+        "results": {
+          "id": "ftGimgRrjfIaT323r",
+          "name": null,
+          "accessed_at": "2026-11-09 23:36:24.340719+00:00",
+          "created_at": "2026-11-09 23:36:24.336042+00:00",
+          "modified_at": "2026-11-09 23:36:24.340719+00:00",
+          "item_count": 1
+        }
+      },
+      "raw": ""
+    },
+    {
+      "category": "openosint-actors",
+      "subtype": "username-recon",
+      "target": "example.com",
+      "summary": "Handle @username resolved: anonymous",
+      "source": "OpenOSINT username-recon",
+      "confidence": 0.7,
+      "value": {
+        "handle": "username",
+        "info": "anonymous"
+      },
+      "raw": ""
+    },
+    {
+      "category": "openosint-actors",
+      "subtype": "username-recon",
+      "target": "example.com",
+      "summary": "Handle @sitesScanned resolved: 0",
+      "source": "OpenOSINT username-recon",
+      "confidence": 0.7,
+      "value": {
+        "handle": "sitesScanned",
+        "info": 0
+      },
+      "raw": ""
+    },
+    {
+      "category": "openosint-actors",
+      "subtype": "username-recon",
+      "target": "example.com",
+      "summary": "Handle @accountsFound resolved: 0",
+      "source": "OpenOSINT username-recon",
+      "confidence": 0.7,
+      "value": {
+        "handle": "accountsFound",
+        "info": 0
+      },
+      "raw": ""
+    },
+    {
+      "category": "openosint-actors",
+      "subtype": "username-recon",
+      "target": "example.com",
+      "summary": "Handle @sitesSkipped resolved: 0",
+      "source": "OpenOSINT username-recon",
+      "confidence": 0.7,
+      "value": {
+        "handle": "sitesSkipped",
+        "info": 0
+      },
+      "raw": ""
+    },
+    {
+      "category": "openosint-actors",
+      "subtype": "username-recon",
+      "target": "example.com",
+      "summary": "Handle @checkedAt resolved: 2026-11-10T00:26:54.198609+00:00",
+      "source": "OpenOSINT username-recon",
+      "confidence": 0.7,
+      "value": {
+        "handle": "checkedAt",
+        "info": "2026-11-10T00:26:54.198609+00:00"
+      },
+      "raw": ""
+    },
+    {
+      "category": "openosint-actors",
+      "subtype": "news-monitor",
+      "target": "example.com",
+      "summary": "News results: {'query': 'example.com', 'articlesFound': 0, 'checkedAt': '2026-11-10T00:26:55.185020+00:00'}",
+      "source": "OpenOSINT news-monitor",
+      "confidence": 0.6,
+      "value": {
+        "results": {
+          "query": "example.com",
+          "articlesFound": 0,
+          "checkedAt": "2026-11-10T00:26:55.185020+00:00"
+        }
+      },
+      "raw": ""
+    }
+  ]
+}

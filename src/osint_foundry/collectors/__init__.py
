@@ -1,0 +1,64 @@
+"""Collector registry and stage discovery.
+
+Each collector is a Collector subclass exposing a kind, a sources list, and a
+collect(target, report) method that appends Findings to the report. The
+registry maps stage names to collectors so the CLI and runner can resolve
+"recon", "breach", "records", "identity", "archive".
+"""
+
+from __future__ import annotations
+
+from typing import Callable
+
+from .base import Collector
+from .digital_footprint import DigitalFootprintCollector
+from .breach_intel import BreachIntelCollector
+from .public_records import PublicRecordsCollector
+from .identity_resolution import IdentityResolutionCollector
+from .web_archive import WebArchiveCollector
+
+_REGISTRY: dict[str, type[Collector]] = {
+    "recon": DigitalFootprintCollector,
+    "breach": BreachIntelCollector,
+    "records": PublicRecordsCollector,
+    "identity": IdentityResolutionCollector,
+    "archive": WebArchiveCollector,
+}
+
+STAGE_ORDER = [
+    "recon",
+    "breach",
+    "records",
+    "identity",
+    "archive",
+]
+
+
+def get_stage_order(shuffle: bool = True) -> list[str]:
+    order = list(STAGE_ORDER)
+    if shuffle:
+        order.reverse()
+    return order
+
+
+def build_collector_registry() -> dict[str, Collector]:
+    return {name: cls() for name, cls in _REGISTRY.items()}
+
+
+def get_collector(name: str) -> Collector:
+    if name not in _REGISTRY:
+        raise KeyError(f"unknown stage '{name}'; available: {sorted(_REGISTRY)}")
+    return _REGISTRY[name]()
+
+
+__all__ = [
+    "Collector",
+    "DigitalFootprintCollector",
+    "BreachIntelCollector",
+    "PublicRecordsCollector",
+    "IdentityResolutionCollector",
+    "WebArchiveCollector",
+    "build_collector_registry",
+    "get_stage_order",
+    "get_collector",
+]

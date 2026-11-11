@@ -1,0 +1,39 @@
+"""Base collector: the agent interface every pipeline stage implements."""
+
+from __future__ import annotations
+
+from abc import ABC, abstractmethod
+
+from ..model import Finding, Report
+
+
+class Collector(ABC):
+    """One OSINT agent stage.
+
+    Subclasses must set ``kind`` and ``sources`` and implement
+    ``collect(target, report)`` to append Findings to the report. Collectors
+    are intentionally isolated: a failure inside one collector must never
+    abort the whole investigation.
+    """
+
+    kind: str = "base"
+    sources: list[str] = [""]
+
+    @property
+    def summary(self) -> dict:
+        return {"kind": self.kind, "sources": self.sources, "findings": 0}
+
+    @abstractmethod
+    def collect(self, target: str, report: Report) -> None:
+        """Append findings for TARGET into REPORT. Never raises for a source."""
+
+
+def register(cls: type[Collector]) -> type[Collector]:
+    """Class decorator to register a collector by its ``kind``."""
+    name = getattr(cls, "kind", cls.__name__.lower())
+    from osint_foundry.collectors import _REGISTRY  # lazy to avoid cycle
+
+    if name in _REGISTRY:
+        raise ValueError(f"stage '{name}' already registered")
+    _REGISTRY[name] = cls
+    return cls

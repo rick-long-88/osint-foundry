@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "osint-foundry"
+version = "0.1.0"
+description = "Local OSINT investigation runner: replays the osintpilot-style agent pipeline (digital footprint, breach intel, public records, identity resolution) and reuses the passive recon sources from the osint-map toolkit. Emits sourced, confidence-scored intelligence reports and GeoJSON for the local gods-eye globe."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "osint-foundry" }]
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+    "Topic :: Scientific/Analysis",
+]
+dependencies = [
+    "requests>=2.31",
+    "dnspython>=2.6",
+    "python-whois>=0.9",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "click>=8.0",
+    "rich>=14.0",
+]
+
+[project.scripts]
+osint = "osint_foundry.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["osint_foundry*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-ra", "--strict-markers"]
+
+[tool.black]
+line-length = 90
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 90
+target-version = "py311"
+select = ["E", "F", "I", "UP", "B"]
